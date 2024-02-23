@@ -1,0 +1,53 @@
+1.create table customer (
+    ID int,
+    customer_LName varchar(25),
+    customer_FName varchar(25),
+   
+);
+
+insert into customer values('1001','john','smith'),
+                                                 ('1002','dave','franklin'),  
+                                                 ('1003','febby','johns'),
+                                                  ('1004','mary','gibson'),
+                                                  ('1005','glory','anson');
+
+2.select concat('id=1001',  ' customer_Fname=Lane');
+
+ 
+create table buying (
+    order_time int
+);
+
+insert into buying values('2016/09/01'),
+                                                 ('2015/08/02'),  
+                                                 ('2017/04/15'),
+                                                  ('2016/09/28'),
+                                                  ('2019/07/05');
+
+
+
+select customer.id, order.order_time
+from customer
+LEFT JOIN buying
+on  customer.id=order.order_time
+order by customer.id;
+
+
+select * from customer limit 3;
+
+reate table product (id int, name varchar(25),address varchar(30));
+insert into product values ('772','Telephone','22 Ave,Burwood'),
+                                                ('774','Movie','33 Flower st,Burwood'),
+                                                 ('775','Software Pack','2 Garden Rd,Geelong'),
+                                                 ('712','Book','20 Ave,Burwood');
+select * from product
+order by product_id  desc ;
+
+select 'buying' as customer_id, product_id, order_time
+from  buying
+UNION
+select 'product', id, name, address
+from product
+
+alter table  customer
+add  constraints customer unique (Fname,Lname);
